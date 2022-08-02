@@ -24,15 +24,11 @@ const selectItems = [
   }
 ]
 
-export const Select = () => {
+export const Select = (props: any) => {
   const selectId = useId();
 
-  const selectHandler = () => {
-    // rodar um filter, com os elementos possuindo os valores correspondentes!
-  }
-
   return (
-    <SelectItem name={selectId} onChange={selectHandler}>
+    <SelectItem name={selectId} onChange={props.onSelect}>
       {
         selectItems.map((selectItem) => {
           return (

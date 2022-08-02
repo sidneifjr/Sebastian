@@ -9,6 +9,8 @@ const SelectItem = styled.select`
   padding: 15px 20px;
   outline-color: #2C7BBF;
   transition: outline ease-in-out 0.2s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 `
 
 export { SelectItem };
