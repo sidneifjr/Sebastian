@@ -1,33 +1,27 @@
-import { InputField } from './components/InputField';
-import { Select } from './components/Select';
+import { useEffect, useState } from 'react';
+import { Form } from './components/Form';
+import { List } from './components/List';
 
 export const App = () => {
-  const inputFields = [
-    {
-      label: "Name",
-      type: "text",
-      placeholder: "Please, insert name.",
-      key: 1
-    },
-    {
-      label: "Serial number",
-      type: "text",
-      placeholder: "Please, insert the serial number.",
-      key: 2
-    }
-  ]
+  const [listing, setListing] = useState<string[]>([]);
+
+  useEffect(() => {
+    console.log(listing);
+  }, [listing])
+
+  const listingHandler = (formName: any, formSerial: any, formManufacturer: any) => {
+    setListing((oldStateSnapshot) => {
+      return [
+        ...oldStateSnapshot,
+        { name: formName, serial: formSerial, manufacturer: formManufacturer }
+      ];
+    });
+  };
 
   return (
-    <main className='App'>
-      {
-        inputFields.map((inputField) => {
-          return (
-            <InputField key={inputField.key} type={inputField.type} label={inputField.label} placeholder={inputField.placeholder} />
-          )
-        })
-      }
-
-      <Select />
-    </main>
+    <>
+      <Form onAddItem={listingHandler} />
+      <List lists={listing} />
+    </>
   )
 }
