@@ -1,9 +1,5 @@
 import { useId } from "react";
-import { SelectWrapper, SelectItem } from "./styles"
-
-interface ISelect {
-  props?: any
-}
+import { SelectItem } from "./styles"
 
 const selectItems = [
   {
@@ -28,7 +24,7 @@ const selectItems = [
   }
 ]
 
-export const Select = (props: ISelect) => {
+export const Select = () => {
   const selectId = useId();
 
   const selectHandler = () => {
@@ -36,18 +32,16 @@ export const Select = (props: ISelect) => {
   }
 
   return (
-    <SelectWrapper>
-      <SelectItem name={selectId} onChange={selectHandler}>
-        {
-          selectItems.map((selectItem) => {
-            return (
-              <option value={selectItem.value} key={selectItem.key}>
-                {selectItem.value}
-              </option>
-            )
-          })
-        }
-      </SelectItem>
-    </SelectWrapper>
+    <SelectItem name={selectId} onChange={selectHandler}>
+      {
+        selectItems.map((selectItem) => {
+          return (
+            <option value={selectItem.value} key={selectItem.key}>
+              {selectItem.value}
+            </option>
+          )
+        })
+      }
+    </SelectItem>
   )
 }
