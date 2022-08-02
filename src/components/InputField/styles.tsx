@@ -4,7 +4,6 @@ const InputFieldWrapper = styled.div`
   width: 100%;
   max-width: 500px;
   position: relative;
-  margin-bottom: 20px;
 `
 
 const InputFieldLabel = styled.label`

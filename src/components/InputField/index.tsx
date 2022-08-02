@@ -1,11 +1,13 @@
-import { useId, useState } from 'react'
+import { ChangeEventHandler, useId, useState } from 'react'
 import { InputFieldWrapper, InputFieldLabel, InputFieldItem } from './styles'
 
 interface IInputField {
+  onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
   label: string,
   value?: string | number,
   type: string,
-  placeholder: string
+  placeholder: string,
+  maxLength?: number
 }
 
 export const InputField = (props: IInputField) => {
@@ -19,7 +21,17 @@ export const InputField = (props: IInputField) => {
   return (
     <InputFieldWrapper>
       <InputFieldLabel className={isFocused ? 'active' : ''} htmlFor={inputId}>{props.label}</InputFieldLabel>
-      <InputFieldItem name={inputId} type={props.type} value={props.value} placeholder={props.placeholder} onFocus={inputHandler} onBlur={inputHandler} />
+
+      <InputFieldItem
+        name={inputId}
+        type={props.type}
+        value={props.value}
+        placeholder={props.placeholder}
+        onFocus={inputHandler}
+        onBlur={inputHandler}
+        onChange={props.onChange}
+        maxLength={props.maxLength}
+      />
     </InputFieldWrapper>
   )
 }
