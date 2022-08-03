@@ -26,7 +26,10 @@ const ListItemText = styled.p`
 const ListItemSubtext = styled.small`
   font-size: 14px;
   line-height: 17px;
-  font-weight: 400;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-left: 25px;
+  display: block;
 `
 
 const ListItemButton = styled.button`

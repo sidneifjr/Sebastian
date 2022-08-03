@@ -4,11 +4,15 @@ import { ListItem } from "./ListItem"
 export const List = (props: { lists: any[] }) => {
   return (
     <ListWrapper>
-      {props.lists.map((listItem: { src: string; text: string | number; onAddList: Function }, index: number) => (
+      {props.lists.map((listItem, index) => (
+        console.log(listItem),
+
         <ListItem
           key={index}
-          text={listItem.text}
+          text={listItem.name}
+          subtext={listItem.serial}
           onAddList={listItem.onAddList}
+          // onDelete={() => listItem.handleDelete(listItem.index)}
         />
       ))}
     </ListWrapper>
