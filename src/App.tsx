@@ -6,7 +6,7 @@ export const App = () => {
   const [listing, setListing] = useState<string[]>([]);
 
   useEffect(() => {
-    console.log(listing);
+    saveData(listing);
   }, [listing])
 
   const listingHandler = (formName: any, formSerial: any, formManufacturer: any) => {
@@ -14,9 +14,14 @@ export const App = () => {
       return [
         ...oldStateSnapshot,
         { name: formName, serial: formSerial, manufacturer: formManufacturer }
-      ];
+      ]
     });
   };
+
+  const saveData = (e: string[]) => {
+    const jsonData = JSON.stringify(listing);
+    localStorage.setItem('MyMovieList', JSON.stringify(jsonData));
+  }
 
   return (
     <>
