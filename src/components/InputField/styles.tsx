@@ -42,6 +42,14 @@ const InputFieldItem = styled.input`
   &::placeholder {
     color: #CECED2;
   }
+
+  &.uppercase {
+    text-transform: uppercase;
+
+    &::placeholder {
+      text-transform: initial;
+    }
+  }
 `
 
 export { InputFieldWrapper, InputFieldLabel, InputFieldItem };

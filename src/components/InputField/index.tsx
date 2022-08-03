@@ -7,7 +7,8 @@ interface IInputField {
   value?: string | number,
   type: string,
   placeholder: string,
-  maxLength?: number
+  maxLength?: number,
+  className?: string
 }
 
 export const InputField = (props: IInputField) => {
@@ -31,6 +32,7 @@ export const InputField = (props: IInputField) => {
         onBlur={inputHandler}
         onChange={props.onChange}
         maxLength={props.maxLength}
+        className={props.className}
       />
     </InputFieldWrapper>
   )
