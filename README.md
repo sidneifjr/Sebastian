@@ -1,5 +1,7 @@
 # Sebastian
 
+Security manager. Life saver.
+
 ## Why the name?
 
 Sebastian is originary from the Latin word "Sebastianus", meaning revered, majestic or vehement protector.
@@ -19,3 +21,10 @@ Sebastian is originary from the Latin word "Sebastianus", meaning revered, majes
 ## Production
 
 `yarn run build`
+
+## Lighthouse
+
+Performance: 100
+Acessibility: 100
+Best pratices: 100
+SEO: 100
