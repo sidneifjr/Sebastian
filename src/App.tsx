@@ -10,7 +10,7 @@ export const App = () => {
   }, [listing])
 
   const listingHandler = (formName: any, formSerial: any, formManufacturer: any) => {
-    setListing((oldStateSnapshot) => {
+    setListing((oldStateSnapshot:any) => {
       return [
         ...oldStateSnapshot,
         { name: formName, serial: formSerial, manufacturer: formManufacturer }

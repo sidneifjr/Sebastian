@@ -5,8 +5,6 @@ export const List = (props: { lists: any[] }) => {
   return (
     <ListWrapper>
       {props.lists.map((listItem, index) => (
-        console.log(listItem),
-
         <ListItem
           key={index}
           text={listItem.name}

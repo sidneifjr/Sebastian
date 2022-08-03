@@ -39,7 +39,7 @@ export const Form = (props: any) => {
       setName('');
       setSerial('');
     } else {
-      return
+      return;
     }
   }
 
