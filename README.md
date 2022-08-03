@@ -22,9 +22,13 @@ Sebastian is originary from the Latin word "Sebastianus", meaning revered, majes
 
 `yarn run build`
 
+## Preview
+
+`yarn run preview`
+
 ## Lighthouse
 
-Performance: 100
+Performance: 100 (99 on mobile)
 Acessibility: 100
 Best pratices: 100
 SEO: 100
