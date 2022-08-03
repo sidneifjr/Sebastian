@@ -19,30 +19,27 @@ export const Form = (props: any) => {
 
   const manufacturerHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setManufacturer(e.target.value);
-    console.log(e.target.value);
   }
 
   const formHandler = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
+    var regexValue = /^[a-z0-9]+$/i;
+    var regex = new RegExp(regexValue);
 
-    console.log("name is: " + name + " and serial is: " + serial);
-
+    // Garante que os campos de nome e serial não estão vazios.
     if(name.trim().length === 0 || serial.trim().length === 0){
       return;
     } else if(serial.length < 1){
       return;
     }
 
-    props.onAddItem(name, serial, manufacturer);
-
-    var regex = new RegExp(/^[a-z0-9]+$/i);
-
     if(regex.test(serial)){
-      console.log('success');
+      props.onAddItem(name, serial, manufacturer);
+
       setName('');
       setSerial('');
     } else {
-      console.log('failure');
+      return
     }
   }
 
@@ -64,11 +61,12 @@ export const Form = (props: any) => {
         placeholder="Please, insert the serial number."
         onChange={(e) => serialHandler(e)}
         maxLength={16}
+        className="uppercase"
       />
 
       <Select onSelect={(e: ChangeEvent<HTMLInputElement>) => manufacturerHandler(e)} />
 
-      <button style={{width:"100%", marginTop: "10px"}} type="submit">Add item</button>
+      <button style={{width:"100%", background:"#0D0D0D", color:"#ffffff", marginTop: "10px"}} type="submit">Add item</button>
     </form>
   )
 }
